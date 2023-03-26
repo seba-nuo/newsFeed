@@ -15,15 +15,14 @@
       <button type="button" class="filter_button" (click)="updateSelected('local')"
         [ngClass]="selected('local')">Local</button>
     </div>
-    <input type="date" name="date" id="date" class="home_input date" placeholder="date">
+    <input type="date" name="date" id="date" class="home_input date" placeholder="date" min="" [(ngModel)]="dateInput" (blur)="onInputDate(dateInput)">
   </section>
   <div class="home_search">
-    <input type="text" name="search" id="search" class="home_input search" #search placeholder="Search News" (input)="onSearch(search.value)">
+    <input type="text" name="search" id="search" class="home_input search" [(ngModel)]="searchInput" #search placeholder="Search News" (input)="onSearch(searchInput)">
   </div>
-  <ul class="home_articles">
+  <ul class="home_articles" *ngIf="searchInput === ''">
     <li *ngFor="let article of articles" class="home_article_list">
       <div>
-
         <img src={{article.urlToImage}} alt={{article.title}} class="home_article_img">
         <div class="home_article_data_container">
           <h2 class="home_article_title">{{article.title}}</h2>
@@ -36,5 +35,21 @@
       </div>
     </li>
   </ul>
+  <ul class="home_articles" *ngIf="searchInput !== ''">
+    <li *ngFor="let article of userSearch" class="home_article_list">
+      <div>
+        <img src={{article.urlToImage}} alt={{article.title}} class="home_article_img">
+        <div class="home_article_data_container">
+          <h2 class="home_article_title">{{article.title}}</h2>
+          <h4 class="home_article_description">{{article.description}}</h4>
+          <p class="home_article_content">{{article.content}}</p>
+        </div>
+      </div>
+      <div class="home_article_url_container">
+        <a href={{article.url}} target="_blank" class="home_article_url">Open</a>
+      </div>
+    </li>
+  </ul>
+  <p *ngIf="userSearch.length === 0 && searchInput !== ''" class="not_found">No article found for '{{searchInput}}'</p>
   <pre *ngIf="homeStatus !== 'notTriggered'" class="home_status" [ngClass]="{'hide': hideStatus}">{{homeStatus}}</pre>
 </main>

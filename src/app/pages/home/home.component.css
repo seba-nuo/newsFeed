@@ -1,8 +1,9 @@
 .home_container {
   background-color: #282c34;
   color: #c1c9d8;
-  min-height: 100vh;
+  min-height: calc(100vh - 20px);
   padding: 10px 20px;
+
 }
 
 .home_nav {
@@ -140,4 +141,9 @@
 
 .hide {
   opacity: 0;
+}
+
+.not_found {
+  display: flex;
+  justify-content: center;
 }

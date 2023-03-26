@@ -20,6 +20,10 @@ export interface Source {
   name: string
 }
 
-export interface newsParams {
-  country?: string
+export interface getNewsParams {
+  country?: string,
+}
+export interface getDateNewsParams {
+  from?: string,
+  to?: string
 }
