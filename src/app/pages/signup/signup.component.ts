@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { SignupService } from './services/signup.service';
-import { SignStatus } from 'src/app/models/user.model';
+import { Status } from 'src/app/models/user.model';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -14,7 +14,7 @@ import { Title } from '@angular/platform-browser';
 
 export class SignupComponent {
 
-  signupStatus: SignStatus = "notTriggered"
+  signupStatus: Status = "notTriggered"
   constructor(private signupService: SignupService, private router: Router, private titleService: Title) {
     this.titleService.setTitle("Sign Up | News Feed")
   }

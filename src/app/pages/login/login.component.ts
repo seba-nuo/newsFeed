@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 import { tap } from 'rxjs/operators';
+import { Status } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,8 @@ export class LoginComponent {
 
   userAdded = false
   hideUserAdded = false
+  userData = {}
+  loginStatus: Status = "notTriggered"
 
   constructor(private router: Router, private login: LoginService, private titleService: Title) {
     this.titleService.setTitle("Login | News Feed")
@@ -34,10 +37,23 @@ export class LoginComponent {
   onSubmit(form: NgForm): void {
     if (form.valid) {
       this.login.loginUser(form.value).pipe(
-        tap(res => console.log(res))
+        tap(res => {
+          this.loginStatus = res.status
+          if(res.status === "approved") {
+            this.userData = {
+              name: res.user.name,
+              email: res.user.email
+            }
+          }
+        })
       ).subscribe(
         {
-          complete: () => console.log("complete")
+          complete: () => {
+            if(this.loginStatus === "approved"){
+              localStorage.setItem("user", JSON.stringify(this.userData))
+              this.router.navigate(["/home"], {state: { user: this.userData }})
+            }
+          }
         }
       )
     }

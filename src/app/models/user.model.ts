@@ -1,19 +1,12 @@
 export interface User {
-  id: number,
+  id?: number,
   name: string,
-  mail: string,
+  email: string,
   password: string,
 }
 
-// export enum SignUpStatus {
-//   checking,
-//   approved,
-//   error,
-//   notTriggered
-// }
+export type Status = "checking" | "approved" | "error" | "notTriggered"
 
-export type SignStatus = "checking" | "approved" | "error" | "notTriggered"
-
-export interface ResSignUpStatus {
-  status: SignStatus
+export interface ResStatus {
+  status: Status
 }
