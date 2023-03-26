@@ -3,7 +3,7 @@
 ## Description
 Frontend of NewsFeed
 - login and signup users
-- see news feed from [newsapi](https://newsapi.org/v2)
+- see news feed from [newsapi](https://newsapi.org/)
 
 ## Setup
 ```bash
