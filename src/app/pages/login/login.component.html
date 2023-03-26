@@ -13,5 +13,6 @@
     </div>
   </div>
   <pre *ngIf="userAdded" class="login_userAdded" [ngClass]="{'hide': hideUserAdded}">User Added!</pre>
+  <pre *ngIf="loginStatus !== 'notTriggered'" class="login_status">{{loginStatus}}</pre>
 </form>
 </div>

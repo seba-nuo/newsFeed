@@ -48,8 +48,11 @@
 }
 
 .signup_status {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   font-size: 15px;
+  padding: 10px 20px;
+  background-color: #c1c9d8;
+  color: #282c34;
 }

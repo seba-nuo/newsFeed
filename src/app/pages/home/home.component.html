@@ -1,0 +1,40 @@
+<main class="home_container">
+  <nav class="home_nav">
+    <h1 class="home_nav_title">My News Feed</h1>
+    <div class="home_nav_log">
+      <p title={{userName}}>{{userEmail}}</p>
+      <button type="button" class="home_nav_button" (click)="logOut()">LogOut</button>
+    </div>
+  </nav>
+  <section class="home_filters">
+    <div class="filters_left">
+      <button type="button" class="filter_button" (click)="updateSelected('location')"
+        [ngClass]="selected('location')">Your Location Country</button>
+      <button type="button" class="filter_button" (click)="updateSelected('international')"
+        [ngClass]="selected('international')">International</button>
+      <button type="button" class="filter_button" (click)="updateSelected('local')"
+        [ngClass]="selected('local')">Local</button>
+    </div>
+    <input type="date" name="date" id="date" class="home_input date" placeholder="date">
+  </section>
+  <div class="home_search">
+    <input type="text" name="search" id="search" class="home_input search" #search placeholder="Search News" (input)="onSearch(search.value)">
+  </div>
+  <ul class="home_articles">
+    <li *ngFor="let article of articles" class="home_article_list">
+      <div>
+
+        <img src={{article.urlToImage}} alt={{article.title}} class="home_article_img">
+        <div class="home_article_data_container">
+          <h2 class="home_article_title">{{article.title}}</h2>
+          <h4 class="home_article_description">{{article.description}}</h4>
+          <p class="home_article_content">{{article.content}}</p>
+        </div>
+      </div>
+      <div class="home_article_url_container">
+        <a href={{article.url}} target="_blank" class="home_article_url">Open</a>
+      </div>
+    </li>
+  </ul>
+  <pre *ngIf="homeStatus !== 'notTriggered'" class="home_status" [ngClass]="{'hide': hideStatus}">{{homeStatus}}</pre>
+</main>

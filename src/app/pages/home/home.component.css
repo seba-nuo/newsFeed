@@ -1,0 +1,143 @@
+.home_container {
+  background-color: #282c34;
+  color: #c1c9d8;
+  min-height: 100vh;
+  padding: 10px 20px;
+}
+
+.home_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid white;
+}
+
+.home_nav_title {
+  margin: 0;
+}
+
+.home_nav_log {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.home_nav_button {
+  height: min-content;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.home_nav_button:hover {
+  opacity: .9;
+}
+
+.home_filters {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters_left {
+  display: flex;
+  gap: 10px;
+}
+
+.filter_button {
+  padding: 10px;
+  border: 1px solid #000000;
+}
+
+.filter_button:hover {
+  cursor: pointer;
+  opacity: .9;
+}
+
+.filter_button.selected {
+  background-color:#282c34;
+  color: #e4e6eb;
+  border: 1px solid #c1c9d8;
+}
+
+.home_input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.home_input.date {
+  padding: 10px;
+}
+
+.home_input.search {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.home_articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-rows: repeat(1rf);
+  grid-gap: 20px 50px;
+  padding: 0;
+}
+
+.home_article_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+}
+
+.home_article_data_container {
+  padding: 0 20px 15px 20px;
+}
+
+.home_article_title {
+  margin-bottom: 0;
+}
+
+.home_article_description {
+  margin-top: 5px;
+}
+
+.home_article_img {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.home_article_url_container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.home_article_url {
+  color: #c1c9d8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home_article_url:hover {
+  text-decoration: underline;
+}
+
+.home_status {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 15px;
+  transition: opacity ease-out .5s;
+  padding: 10px 20px;
+  background-color: #c1c9d8;
+  color: #282c34;
+}
+
+.hide {
+  opacity: 0;
+}

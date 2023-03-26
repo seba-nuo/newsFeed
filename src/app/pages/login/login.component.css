@@ -36,6 +36,9 @@
 .login_form_button button {
   padding: 10px 20px;
   font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
 }
 
 .login_form_button a {
@@ -47,12 +50,15 @@
   text-decoration: underline;
 }
 
-.login_userAdded {
-  position: absolute;
+.login_userAdded, .login_status {
+  position: fixed;
   bottom: 20px;
   right: 20px;
   font-size: 15px;
   transition: opacity ease-out .5s;
+  padding: 10px 20px;
+  background-color: #c1c9d8;
+  color: #282c34;
 }
 
 .hide {

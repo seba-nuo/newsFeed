@@ -16,8 +16,7 @@
       <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
       <a routerLink="/">Login</a>
     </div>
-    <pre *ngIf="signupStatus === 'error'" class="signup_status">{{signupStatus}}</pre>
-    <pre *ngIf="signupStatus === 'checking'" class="signup_status">Cargando...</pre>
+    <pre *ngIf="signupStatus !== 'notTriggered'" class="signup_status">{{signupStatus}}</pre>
   </div>
 </form>
 </div>

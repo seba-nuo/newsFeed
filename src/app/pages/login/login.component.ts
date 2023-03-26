@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 import { tap } from 'rxjs/operators';
-import { Status } from 'src/app/models/user.model';
+import { Status } from 'src/app/models/status.model';
 
 @Component({
   selector: 'app-login',
@@ -27,19 +27,20 @@ export class LoginComponent {
     const state = this.router.getCurrentNavigation()?.extras.state
     if (!state?.["status"]) return
 
-    this.userAdded = true
+    this.userAdded = state["status"] === "success"
 
     setTimeout(() => {
       this.hideUserAdded = true
     }, 2000)
   }
 
-  onSubmit(form: NgForm): void {
+  onSubmit(form: NgForm) {
     if (form.valid) {
+      this.loginStatus = "checking..."
       this.login.loginUser(form.value).pipe(
         tap(res => {
           this.loginStatus = res.status
-          if(res.status === "approved") {
+          if(res.status === "success") {
             this.userData = {
               name: res.user.name,
               email: res.user.email
@@ -49,8 +50,7 @@ export class LoginComponent {
       ).subscribe(
         {
           complete: () => {
-            if(this.loginStatus === "approved"){
-              localStorage.setItem("user", JSON.stringify(this.userData))
+            if(this.loginStatus === "success"){
               this.router.navigate(["/home"], {state: { user: this.userData }})
             }
           }
