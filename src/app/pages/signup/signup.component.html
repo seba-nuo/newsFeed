@@ -1,0 +1,23 @@
+<div class="signup_container">
+
+  <h1>My News Feed</h1>
+  <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
+  <div class="signup_form_container">
+    <!-- <label for="name">Name</label> -->
+    <input type="text" id="name" name="name" placeholder="name" ngModel required>
+    
+    <!-- <label for="email">Email</label> -->
+    <!-- <input type="email" id="email" name="email" placeholder="email" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" ngModel required> -->
+    <input type="email" id="email" name="email" placeholder="email" ngModel required>
+
+    <!-- <label for="password">Password</label> -->
+    <input type="password" id="password" name="password" placeholder="password" ngModel required>
+    <div class="signup_form_button">
+      <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+      <a routerLink="/">Login</a>
+    </div>
+    <pre *ngIf="signupStatus === 'error'" class="signup_status">{{signupStatus}}</pre>
+    <pre *ngIf="signupStatus === 'checking'" class="signup_status">Cargando...</pre>
+  </div>
+</form>
+</div>

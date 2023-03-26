@@ -1,0 +1,17 @@
+<div class="login_container">
+  <h1>My News Feed</h1>
+  <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+  <div class="login_form_container">
+    <!-- <label for="name">Name</label> -->
+    <input type="text" id="name" name="name" placeholder="name" ngModel required>
+    
+    <!-- <label for="password">Password</label> -->
+    <input type="password" id="password" name="password" placeholder="password" ngModel required>
+    <div class="login_form_button">
+      <button type="submit" [disabled]="loginForm.invalid">Login</button> 
+      <a routerLink="/signup">Sign Up</a>
+    </div>
+  </div>
+  <pre *ngIf="userAdded" class="login_userAdded" [ngClass]="{'hide': hideUserAdded}">User Added!</pre>
+</form>
+</div>
