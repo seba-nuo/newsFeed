@@ -11,5 +11,13 @@ git clone https://github.com/seba-nuo/newsFeed
 cd newsFeed
 npm i 
 ```
-- create a enviroments.ts
+- create a enviroments.ts with the following apis
+```
+export const environment = {
+  production: false,
+  api_key: 'YOUR API KEY', // (news api) from https://newsapi.org/ 
+  geo_key: 'YOUR API KEY', // (localization api) from https://opencagedata.com/users/sign_up
+};
+```
+`npm start`
 
